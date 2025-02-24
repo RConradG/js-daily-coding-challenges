@@ -351,7 +351,22 @@ formatWithPadding(42, '*', 10) //=> "********42"
 formatWithPadding(1234, '*', 3) //=> "1234"
 -----------------------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
+function formatWithPadding(integerToFormat, charPadding, padLength) {
+  let integerString = integerToFormat.toString();
 
+  if (padLength - integerString.length <= 0) {
+    console.log("Inside if statement");
+    console.log(integerString);
+    return integerString;
+  } else {
+    console.log("Inside Else Statement");
+    let paddingArray = [];
+    for (let i = 0; i < (padLength - integerString.length); i++) {
+      paddingArray.push(charPadding);
+    }
+    return paddingArray.join("") + integerString;
+  }
+}
 /*-----------------------------------------------------------------------------
 Challenge: 11-isPalindrome
 
