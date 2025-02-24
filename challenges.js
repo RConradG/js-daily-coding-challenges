@@ -392,11 +392,10 @@ const isPalindrome = (string) => {
   if(string.length === 0 || string.length === 1) {
     return true;
   } else {
-    let stringNoSpaces = string.replace(/\s/g, "");
+    let stringNoSpaces = string.replace(/\s/g, ""); // removes spaces
+    //below reverses string w/o for loop
     let reversedNoSpaceString = stringNoSpaces.split("").reverse().join("");
-    console.log(string);
-    console.log(stringNoSpaces);
-    console.log(reversedNoSpaceString);
+
     return stringNoSpaces.toLowerCase() === reversedNoSpaceString.toLowerCase();
   }
 };
