@@ -66,6 +66,16 @@ const addTwoNumbers = (num1, num2) => {
   }
 };
 
+// using isNaN
+
+// function addTwoNumbers(num1, num2) {
+//   if (isNaN(num1) || isNaN(num2)) {
+//     return NaN;
+//   } else {
+//     return num1 + num2;
+//   }
+// }
+
 /*-----------------------------------------------------------------------------
 Challenge: 03-sumNumbers
 
@@ -129,6 +139,8 @@ const addList = (...numbers) => {
   return sum;
 };
 
+// can use reduce()
+
 // alternative notation
 
 // function addList(...numbers) {
@@ -166,6 +178,16 @@ computeRemainder(10.5, 3) //=> 1.5
 -----------------------------------------------------------------------------*/
 // Your solution for 05-computeRemainder here:
 
+const computeRemainder = (dividend, divisor) => {
+
+  if (divisor === 0) {
+    return Infinity;
+  } else {
+    return dividend - (divisor * Math.floor(dividend/divisor));
+  }
+};
+
+
 /*-----------------------------------------------------------------------------
 Challenge: 06-range
 
@@ -189,6 +211,19 @@ range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------------------*/
 // Your solution for 06-range here:
 
+function range(int1, int2) {
+  if (int1 > int2) {
+    return "First argument must be less than second"
+  }
+ let intArray = [];
+ let intToInsert = int1;
+
+ for (let i = int1; i < int2; i++, intToInsert++) {
+  intArray.push(i);
+ }
+ return intArray;
+};
+
 /*-----------------------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
 
@@ -206,7 +241,14 @@ Examples:
 reverseUpcaseString("SEI Rocks!") //=> "!SKCOR IES" 
 -----------------------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
+const reverseUpcaseString = (string) => {
+  let stringArray = [];
+  for (let i = 0; i < string.length; i++) {
+    stringArray.unshift(string.charAt(i));
+  }
+  return stringArray.join("").toUpperCase();
 
+};
 /*-----------------------------------------------------------------------------
 Challenge: 08-removeEnds
 
@@ -224,6 +266,13 @@ removeEnds('SEB Rocks!') //=> "EB Rocks"
 removeEnds('a') //=> "" (empty string)
 -----------------------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
+function removeEnds(string) {
+  if(string.length < 3) {
+    return "";
+  } else {
+    return string.substring(1, string.length - 1);
+  }
+};
 
 /*-----------------------------------------------------------------------------
 Challenge: 09-charCount
@@ -262,7 +311,21 @@ charCount('Today is fantastic!')
 }
 -----------------------------------------------------------------------------*/
 // Your solution for 09-charCount here:
+const charCount = ((string) => {
+  let stringArray = [];
+  for (let i = 0; i < string.length; i++) {
+    stringArray.push(string[i]);
+  }
 
+  return stringArray.reduce((accumulator, char) => {
+    if (accumulator[char]) {
+      accumulator[char]+= 1;
+    } else {
+      accumulator[char] = 1;
+    }
+    return accumulator;  
+  },{});
+});
 /*-----------------------------------------------------------------------------
 Challenge: 10-formatWithPadding
 
