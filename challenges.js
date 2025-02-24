@@ -355,11 +355,8 @@ function formatWithPadding(integerToFormat, charPadding, padLength) {
   let integerString = integerToFormat.toString();
 
   if (padLength - integerString.length <= 0) {
-    console.log("Inside if statement");
-    console.log(integerString);
     return integerString;
   } else {
-    console.log("Inside Else Statement");
     let paddingArray = [];
     for (let i = 0; i < (padLength - integerString.length); i++) {
       paddingArray.push(charPadding);
@@ -391,6 +388,19 @@ isPalindrome('') //=> true
 -----------------------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 
+const isPalindrome = (string) => {
+  if(string.length === 0 || string.length === 1) {
+    return true;
+  } else {
+    let stringNoSpaces = string.replace(/\s/g, "");
+    let reversedNoSpaceString = stringNoSpaces.split("").reverse().join("");
+    console.log(string);
+    console.log(stringNoSpaces);
+    console.log(reversedNoSpaceString);
+    return stringNoSpaces.toLowerCase() === reversedNoSpaceString.toLowerCase();
+  }
+};
+  
 /*-----------------------------------------------------------------------------
 Challenge: 12-hammingDistance
 
