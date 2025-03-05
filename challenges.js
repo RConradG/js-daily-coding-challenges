@@ -426,6 +426,22 @@ hammingDistance('abc', 'ab') //=> NaN
 -----------------------------------------------------------------------------*/
 // Your solution for 12-hammingDistance here:
 
+function hammingDistance(string1, string2) {
+  let doesNotMatchCount = 0;
+  if (string1.length !== string2.length) {
+    return NaN;
+  } else {
+    for (let i = 0; i < string1.length; i++) {
+      if (string1.charAt(i) !== string2.charAt(i)) {
+        doesNotMatchCount++;
+      }
+    }
+  }
+  return doesNotMatchCount;
+}
+
+
+
 /*-----------------------------------------------------------------------------
 Challenge: 13-mumble
 
@@ -448,6 +464,25 @@ mumble('121') //=> '1-22-111'
 mumble('!A 2') //=> '!-AA-   -2222'
 -----------------------------------------------------------------------------*/
 // Your solution for 13-mumble here:
+
+const mumble = string => {
+  let stringArray = string.split("");
+  let mumbleString = "";
+
+  stringArray.forEach( (letter, index) => {
+    for(let i = 0; i < (index + 1); i++) {
+      mumbleString += letter;
+    }
+
+    if (index < stringArray.length - 1) {
+      mumbleString += "-";
+    }
+  })
+  console.log(mumbleString);
+  return mumbleString;
+  
+  };
+
 
 /*-----------------------------------------------------------------------------
 Challenge: 14-fromPairs
@@ -472,6 +507,9 @@ fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ])
 //=> { name: "Sally", age: 24 }
 -----------------------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
+
+
+
 
 /*-----------------------------------------------------------------------------
 Challenge: 15-mergeObjects
